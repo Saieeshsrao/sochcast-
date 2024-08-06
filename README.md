@@ -1,7 +1,6 @@
 # Sochcast Clone
 
-This project was created using the React framework. You can view it at [Sochcast Clone](https://cc27-122-171-16-3.ngrok-free.app/) (note: the link may not work if the port is closed, as it is running locally for demo purposes).
-
+This project was created using the React framework. You can view it at [Sochcast Clone](https://sochcast-demo.vercel.app/) 
 ## Features
 
 ### Show List
