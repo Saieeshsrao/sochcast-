@@ -1,31 +1,23 @@
-## **Sochcast Clone**
+# Sochcast Clone
 
-This project was created using React Framework.
+This project was created using the React framework. You can view it at [Sochcast Clone](https://cc27-122-171-16-3.ngrok-free.app/) (note: the link may not work if the port is closed, as it is running locally for demo purposes).
 
-**Features**
+## Features
 
- **Show List:**
+### Show List
+- **Fetch and Display:** Retrieve and display a list of all available shows.
+- **Show Details:** Each show displays its title and show image.
 
-○ Fetch and display a list of all available shows.
+### Episode List
+- **Display Episodes:** When a user clicks on a show, a list of episodes for that show is displayed.
+- **Episode Details:** Each episode displays its title, image, and author.
 
-○ Each show should display its title and show image.
+### TODO
+- **Audio Playback:** Implement audio playback for episodes (the provided API currently lacks audio paths and episode lists).
+- **Player Controls:**
+  - Play, pause, and volume control.
+  - Automatically play the next episode when the current one finishes.
 
-**Episode List:**
-
-○ When a user clicks on a show, displays a list of episodes for that show.
-
-○ Each episode  displays its title, image and author
-
-
-**TODO- (the api provided doesnt have audio path and episode list)**
-
-○ When a user clicks on an episode's play button, the episode starts playing.
-
-○ The player displays the currently playing episode's title.
-
-○ The player has controls for play, pause, and volume.
-
-○ The player automatically plays the next episode when the current one
 
 ## How to RUN Locally
 
