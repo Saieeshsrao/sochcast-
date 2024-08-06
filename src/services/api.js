@@ -13,9 +13,9 @@ export const fetchShows = async () => {
   }
 };
 
-export const fetchShowDetails = async (id) => {
+export const fetchShowDetails = async (slug) => {
   try {
-    const response = await axios.get(`${API_URL}/${id}`);
+    const response = await axios.get(`https://beta.sochcast.com/api/v1/listener/show/${slug}`);
     console.log("Show details API response:", response.data);
     return response.data;
   } catch (error) {

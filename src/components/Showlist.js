@@ -35,7 +35,7 @@ const ShowList = () => {
       <h1 style={{textAlign: 'center' }}>Shows List</h1>
       <div className="show-list">
         {state.shows.map(show => (
-          <Link key={show.id} to={`/podcast/${show.id}`} className="show-card">
+          <Link key={show.id} to={`/podcast/${show.slug}`} className="show-card">
             <img src={show.show_image} alt={show.name} />
             <h2>{show.name}</h2>
             <h3>By {show.hosts[0].first_name} {show.hosts[0].last_name}</h3>

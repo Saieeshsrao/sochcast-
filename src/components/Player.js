@@ -20,10 +20,11 @@ const Player = () => {
 
   return (
     <div className="player">
-      <h3>Now Playing: {state.currentEpisode.title}</h3>
+      <h3>Now Playing: {state.currentEpisode.name}</h3>
       <audio
+      
         ref={audioRef}
-        src={state.currentEpisode.audio_url}
+        src={state.currentEpisode.file}
         controls
         onPlay={() => dispatch({ type: SET_PLAYING, payload: true })}
         onPause={() => dispatch({ type: SET_PLAYING, payload: false })}
