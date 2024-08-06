@@ -1,0 +1,116 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+img {
+  max-width: auto;
+  height: auto;
+}
+
+div {
+  margin: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+}
+
+@media (min-width: 600px) {
+  .App {
+    flex-direction: row;
+  }
+}
+
+.show-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  row-gap: 45px; 
+   /* Adjust spacing between items */
+}
+
+.show-card {
+  padding: 10px;
+  border: 0px solid gray;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(243, 1, 1, 0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  height: 300px;
+}
+
+.show-card:hover {
+  transform: translateY(-11px);
+  color: rgb(10, 11, 11);
+  box-shadow: 0 2px 5px rgba(86, 218, 15, 0.1);
+}
+
+.show-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  background-color: green ;
+}
+
+.show-card h2 {
+  margin-top: 15px;
+  font-size: 1rem;
+  text-align: center;
+}
+.show-card h3 {
+  margin-top: -1px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+
+.podcast-details {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.podcast-details img {
+  max-width: 300px;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.podcast-details h1 {
+  text-align: center;
+}
+
+.podcast-details p {
+  text-align: justify;
+  line-height: 1.6;
+}
+
+.episode-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px; /* Adjust spacing between items */
+}
+
+.episode-item {
+  padding: 10px;
+  border: 4px solid gray;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .show-card, .episode-item {
+    grid-column: span 4; /* Make each item take full width on smaller screens */
+  }
+}
