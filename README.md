@@ -5,17 +5,26 @@ This project was created using React Framework.
 **Features**
 
  **Show List:**
+
 ○ Fetch and display a list of all available shows.
+
 ○ Each show should display its title and show image.
 
 **Episode List:**
+
 ○ When a user clicks on a show, displays a list of episodes for that show.
+
 ○ Each episode  displays its title, image and author
 
-**TODO- the api provided doesnt have audio path and episode list**
+
+**TODO- (the api provided doesnt have audio path and episode list)**
+
 ○ When a user clicks on an episode's play button, the episode starts playing.
+
 ○ The player displays the currently playing episode's title.
+
 ○ The player has controls for play, pause, and volume.
+
 ○ The player automatically plays the next episode when the current one
 
 ## How to RUN Locally
