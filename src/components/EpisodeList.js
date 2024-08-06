@@ -6,7 +6,7 @@ const EpisodeList = ({ episodes }) => {
   const { dispatch } = useContext(Store);
 
   if (!episodes || episodes.length === 0) {
-    return <div>No episodes available</div>;
+    return <div style={{ fontWeight: "bold", color: 'black',textShadow: '1px 1px 5px #000000' }}>No episodes available</div>;
   }
 
   return (

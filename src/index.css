@@ -33,7 +33,7 @@ button {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  row-gap: 45px; 
+  row-gap: 100px; 
    /* Adjust spacing between items */
 }
 
@@ -43,13 +43,15 @@ button {
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(243, 1, 1, 0.1);
   transition: transform 0.3s ease;
+  color: black;
   cursor: pointer;
   height: 300px;
+  text-decoration: none;
 }
 
 .show-card:hover {
   transform: translateY(-11px);
-  color: rgb(10, 11, 11);
+  color: rgb(14, 229, 64);
   box-shadow: 0 2px 5px rgba(86, 218, 15, 0.1);
 }
 

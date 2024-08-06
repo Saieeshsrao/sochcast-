@@ -40,7 +40,10 @@ const ShowList = () => {
             <h2>{show.name}</h2>
             <h3>By {show.hosts[0].first_name} {show.hosts[0].last_name}</h3>
           </Link>
-        ))}
+          
+        )
+        )}
+        
       </div>
     </div>
   );
