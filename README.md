@@ -11,8 +11,8 @@ This project was created using the React framework. You can view it at [Sochcast
 - **Display Episodes:** When a user clicks on a show, a list of episodes for that show is displayed.
 - **Episode Details:** Each episode displays its title, image, and author.
 
-### TODO
-- **Audio Playback:** Implement audio playback for episodes (the provided API currently lacks audio paths and episode lists).
+### Episodes
+- **Audio Playback:** Implement audio playback for episodes 
 - **Player Controls:**
   - Play, pause, and volume control.
   - Automatically play the next episode when the current one finishes.
