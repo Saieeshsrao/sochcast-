@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Store } from '../context/Store';
 import { SET_CURRENT_SHOW } from '../context/actions';
 import EpisodeList from './EpisodeList';
-import Player from './Player';
+import CustomAudioPlayer from './AudioPlayer';
 import { fetchShowDetails } from '../services/api';
 import '../index.css';
 
@@ -35,16 +35,14 @@ const PodcastDetails = () => {
   if (!state.currentShow) {
     return <div>Show not found</div>;
   }
-  console.log("currentShow", state.currentShow);
+
   return (
     <div className="podcast-details">
       <img src={state.currentShow.show_image} alt={state.currentShow.name} />
       <h1>{state.currentShow.name}</h1>
-      
       <p dangerouslySetInnerHTML={{ __html: state.currentShow.description }}></p>
-      
       <EpisodeList episodes={state.currentShow.results || []} />
-      
+      <CustomAudioPlayer />
     </div>
   );
 };

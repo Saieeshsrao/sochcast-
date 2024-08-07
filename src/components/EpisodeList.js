@@ -1,11 +1,10 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Store } from '../context/Store';
 import { SET_CURRENT_EPISODE, SET_PLAYING } from '../context/actions';
-import AudioPlayer from './AudioPlayer';
 import '../index.css';
 
 const EpisodeList = ({ episodes }) => {
-  const { dispatch } = useContext(Store);
+  const { state, dispatch } = useContext(Store);
   const [currentEpisodeIndex, setCurrentEpisodeIndex] = useState(0);
 
   useEffect(() => {
@@ -24,27 +23,20 @@ const EpisodeList = ({ episodes }) => {
     dispatch({ type: SET_PLAYING, payload: true });
   };
 
-  const playNextEpisode = () => {
-    const nextIndex = (currentEpisodeIndex + 1) % episodes.length;
-    playEpisode(nextIndex);
-  };
-
+  console.log("1234567890",episodes[0].shows[0].hosts[0].first_name);
   return (
     <div className="episode-list">
-      <h2>Episodes</h2>
+      <h2>All Episodes</h2>
       {episodes.map((episode, index) => (
-        <div key={episode.id} className="episode-item">
+        <div key={episode.id} className="episode-item" onClick={() => playEpisode(index)}>
+          <span>{index + 1}. </span>
           {episode.episode_image && <img src={episode.episode_image} alt={episode.name} className="episode-image" />}
-          <h3>{episode.name || 'Untitled Episode'}</h3>
-          {episode.description && <p dangerouslySetInnerHTML={{ __html: episode.description }}></p>}
-          {episode.file && (
-            <AudioPlayer 
-              audioUrl={episode.file}
-              onPlay={() => playEpisode(index)}
-              onEnded={playNextEpisode}
-              autoPlay={index === currentEpisodeIndex}
-            />
-          )}
+          <div className="episode-details">
+            <h3>{episode.name || 'Untitled Episode'}</h3>
+            <p>By {episode.shows[0].hosts[0].first_name} {episode.shows[0].hosts[0].last_name}</p>
+            <p>Published on <b>{episode.publish_date}</b></p>
+          
+          </div>
         </div>
       ))}
     </div>
