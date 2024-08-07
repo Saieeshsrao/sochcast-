@@ -49,15 +49,35 @@ const CustomAudioPlayer = () => {
   if (!state.currentEpisode) {
     return null;
   }
-
-  console.log("episooodes",state.episodes)  ;
+  console.log("episodes", state.episodes);
   const handlePrevious = () => {
-   
-};
+    if (!Array.isArray(state.episodes) || state.episodes.length === 0) {
+      console.error("Episodes array is not defined or empty");
+      return;
+    }
 
-const handleNext = () => {
-   
-};
+    const currentIndex = state.episodes.findIndex(episode => episode.id === state.currentEpisode.id);
+    if (currentIndex > 0) {
+      const previousEpisode = state.episodes[currentIndex - 1];
+      dispatch({ type: 'SET_CURRENT_EPISODE', payload: previousEpisode });
+      dispatch({ type: SET_PLAYING, payload: true });
+    }
+  };
+
+  const handleNext = () => {
+    if (!Array.isArray(state.episodes) || state.episodes.length === 0) {
+      console.error("Episodes array is not defined or empty");
+      return;
+    }
+
+    const currentIndex = state.episodes.findIndex(episode => episode.id === state.currentEpisode.id);
+    if (currentIndex < state.episodes.length - 1) {
+      const nextEpisode = state.episodes[currentIndex + 1];
+      dispatch({ type: 'SET_CURRENT_EPISODE', payload: nextEpisode });
+      dispatch({ type: SET_PLAYING, payload: true });
+    }
+  };
+
   const togglePlay = () => {
     dispatch({ type: SET_PLAYING, payload: !state.playing });
   };

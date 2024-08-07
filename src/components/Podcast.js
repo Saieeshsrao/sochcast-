@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Store } from '../context/Store';
-import { SET_CURRENT_SHOW } from '../context/actions';
+import { SET_CURRENT_SHOW,SET_SHOWS } from '../context/actions';
 import EpisodeList from './EpisodeList';
 import CustomAudioPlayer from './AudioPlayer';
 import { fetchShowDetails } from '../services/api';
@@ -18,6 +18,7 @@ const PodcastDetails = () => {
       try {
         const showData = await fetchShowDetails(slug);
         dispatch({ type: SET_CURRENT_SHOW, payload: showData });
+        dispatch({ type: SET_SHOWS, payload: showData.results });
       } catch (error) {
         console.error("Error fetching show details:", error);
       } finally {

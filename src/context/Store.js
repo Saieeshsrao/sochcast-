@@ -7,6 +7,7 @@ export const Store = createContext();
 export const StoreProvider = ({ children }) => {
   const initialState = {
     shows: [],
+    episodes: [],
     // ... other initial state properties
   };
 
