@@ -27,16 +27,22 @@
 // };
 
 // export default AudioPlayer;
-import React, { useContext, useEffect, useRef } from 'react';
+
+
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Store } from '../context/Store';
 import { SET_PLAYING, SET_CURRENT_TIME, SET_DURATION } from '../context/actions';
 import 'react-h5-audio-player/lib/styles.css';
 import AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
-import '../index.css';
+// Import Ant Design styles
+import { Slider, Button } from 'antd';
 import { StepBackwardOutlined, StepForwardOutlined } from '@ant-design/icons';
+import '../index.css';
+
 const CustomAudioPlayer = () => {
   const { state, dispatch } = useContext(Store);
   const audioRef = useRef(null);
+  const [volume, setVolume] = useState(100); // Initial volume at 100%
 
   useEffect(() => {
     if (state.playing && audioRef.current) {
@@ -46,10 +52,16 @@ const CustomAudioPlayer = () => {
     }
   }, [state.playing, state.currentEpisode]);
 
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.audio.current.volume = volume / 100;
+    }
+  }, [volume]);
+
   if (!state.currentEpisode) {
     return null;
   }
-  console.log("episodes", state.episodes);
+
   const handlePrevious = () => {
     if (!Array.isArray(state.episodes) || state.episodes.length === 0) {
       console.error("Episodes array is not defined or empty");
@@ -98,6 +110,16 @@ const CustomAudioPlayer = () => {
     dispatch({ type: SET_DURATION, payload: e.target.duration });
   };
 
+  const handleVolumeChange = value => {
+    setVolume(value);
+  };
+
+  const handleMute = () => {
+    if (audioRef.current) {
+      audioRef.current.audio.current.muted = !audioRef.current.audio.current.muted;
+    }
+  };
+
   return (
     <div className="audio-player">
       <div className="now-playing-info">
@@ -122,18 +144,19 @@ const CustomAudioPlayer = () => {
         ]}
         customControlsSection={[
           RHAP_UI.ADDITIONAL_CONTROLS,
-          
           <StepBackwardOutlined style={{ color: 'white', fontSize: '40px' }} onClick={handlePrevious} />,
           RHAP_UI.MAIN_CONTROLS,
           <StepForwardOutlined style={{ color: 'white', fontSize: '40px' }} onClick={handleNext} />,
-          RHAP_UI.VOLUME_CONTROLS,
-       
-        
+          <div className="custom-volume-controls" key="custom-volume-controls">
+            <Slider
+              value={volume}
+              onChange={handleVolumeChange}
+              style={{ width: 100 }}
+            />
+           
+          </div>,
         ]}
-       
-     
       />
-     
     </div>
   );
 };

@@ -18,7 +18,7 @@ const PodcastDetails = () => {
       try {
         const showData = await fetchShowDetails(slug);
         dispatch({ type: SET_CURRENT_SHOW, payload: showData });
-        dispatch({ type: SET_SHOWS, payload: showData.results });
+        // dispatch({ type: SET_SHOWS, payload: showData.results });
       } catch (error) {
         console.error("Error fetching show details:", error);
       } finally {

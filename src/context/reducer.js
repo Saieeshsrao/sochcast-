@@ -3,9 +3,7 @@ import { SET_SHOWS, SET_CURRENT_SHOW, SET_CURRENT_EPISODE, SET_PLAYING } from '.
 const initialState = {
   shows: [],
   episodes: [], // Ensure episodes are part of the initial state
-  currentShow: null,
-  currentEpisode: null,
-  playing: false,
+
 };
 
 const reducer = (state = initialState, action) => {

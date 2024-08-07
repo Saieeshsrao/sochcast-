@@ -283,6 +283,7 @@ button {
   align-items: center;
   color: white;
   padding-bottom: 10px;
+  
 }
 
 .audio-player .rhap_main-controls button {
@@ -298,6 +299,14 @@ button {
 
 .audio-player .rhap_volume-controls {
   color: white;
+}
+.rhap_controls-section{
+display: flex;
+flex: 1 1 auto;
+justify-content: space-between;
+align-items: center;
+align-self: center;
+align-content: center;
 }
 
 .audio-player .rhap_volume-bar {
